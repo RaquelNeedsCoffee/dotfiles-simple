@@ -1,0 +1,22 @@
+---
+- name: Install apt packages
+  package:
+    name: "{{ item }}"
+    state: latest
+  become: yes
+  with_items:
+    - git
+    - vim
+    - python3-virtualenv
+    - build-essential
+    - htop
+
+- name: Install snap packages
+  snap:
+    name: "{{ item }}"
+    classic: yes
+  become: yes
+  become_user: root
+  become_method: sudo
+  with_items:
+    - pycharm-professional

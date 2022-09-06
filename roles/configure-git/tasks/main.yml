@@ -1,0 +1,12 @@
+- name: Install configure-git
+  apt: name=configure-git state=present
+  become: yes
+  become_user: root
+  become_method: sudo
+
+- name: Link global gitignore file
+  file:
+    src: "{{ dotfiles_home }}/roles/configure-git/files/gitignore_global.link"
+    dest: "{{ dotfiles_user_home }}/.gitignore_global"
+    state: link
+    force: yes
