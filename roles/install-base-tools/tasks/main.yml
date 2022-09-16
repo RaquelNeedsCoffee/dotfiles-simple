@@ -20,3 +20,5 @@
   become_method: sudo
   with_items:
     - pycharm-professional
+    - intellij-idea-ultimate
+    - discord
